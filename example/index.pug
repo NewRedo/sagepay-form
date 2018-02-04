@@ -1,0 +1,15 @@
+doctype html
+html(lang='en')
+    head
+        meta(charset='UTF-8')
+        title Sagepay Form
+    body
+        h1 SagePay Example
+
+        form(method='post' action=sagepayGatewayUrl)
+            input(readonly name='VPSProtocol', value=hiddenFields.VPSProtocol)
+            input(readonly name='TxType', value=hiddenFields.TxType)
+            input(readonly name='Vendor', value=hiddenFields.Vendor)
+            input(readonly name='Crypt', value=hiddenFields.Crypt)
+            button(type='submit') Submit
+        pre= JSON.stringify(_locals, null, 4)

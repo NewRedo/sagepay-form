@@ -58,6 +58,14 @@ Returns an Object containing the decrypted data, one property for each field.
 
 * `crypt` Required. See Sage Pay Form Integration and Protocol Guidelines 3.00, Appendix B.
 
+## Running Example
+
+To run the example, install the relevant npm modules and then use the following command:
+
+```
+VENDOR_NAME=vendor_name VENDOR_PASSWORD=vendor_password node example/
+```
+
 ## Licence
 
 MIT

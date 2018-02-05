@@ -1,15 +1,21 @@
-doctype html
-html(lang='en')
-    head
-        meta(charset='UTF-8')
-        title Sagepay Form
-    body
-        h1 SagePay Example
+extends ./template.pug
 
-        form(method='post' action=sagepayGatewayUrl)
-            input(readonly name='VPSProtocol', value=hiddenFields.VPSProtocol)
-            input(readonly name='TxType', value=hiddenFields.TxType)
-            input(readonly name='Vendor', value=hiddenFields.Vendor)
-            input(readonly name='Crypt', value=hiddenFields.Crypt)
-            button(type='submit') Submit
-        pre= JSON.stringify(_locals, null, 4)
+block main
+    h1 SagePay Example
+    hr
+    form#form(method='post' action=sagepayGatewayUrl)
+        div.form-group
+            label VPSProtocol:
+            input.form-control(readonly name='VPSProtocol', value=hiddenFields.VPSProtocol)
+        div.form-group
+            label TxType:
+            input.form-control(readonly name='TxType', value=hiddenFields.TxType)
+        div.form-group
+            label Vendor:
+            input.form-control(readonly name='Vendor', value=hiddenFields.Vendor)
+        div.form-group
+            label Crypt:
+            textarea.form-control(readonly rows='8' name='Crypt' form=form) #{hiddenFields.Crypt}
+        button.btn.btn-primary(type='submit') Submit
+    hr
+    pre= JSON.stringify(_locals, null, 4)

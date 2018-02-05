@@ -10,5 +10,11 @@
   "license": "MIT",
   "dependencies": {
     "extend": "^3.0.1"
+  },
+  "devDependencies": {
+    "express": "^4.16.2",
+    "nconf": "^0.10.0",
+    "pug": "^2.0.0-rc.4",
+    "uuid": "^3.2.1"
   }
 }

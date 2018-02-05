@@ -1,0 +1,6 @@
+extends ./template.pug
+
+block main
+    h1 #{pageTitle}
+    hr
+    pre= JSON.stringify(_locals, null, 4)

@@ -13,8 +13,6 @@ var options = {
 }
 var client = new SagepayFormClient(options);
 
-var hiddenFields = {};
-
 app.set("view engine", "pug");
 
 app.get("/", function(req, res) {
@@ -39,7 +37,6 @@ app.get("/", function(req, res) {
         DeliveryCountry: "GB"
     };
     res.locals.hiddenFields = client.createHiddenFields(res.locals.transaction);
-    hiddenFields = res.locals.hiddenFields;
     res.locals.sagepayGatewayUrl = 'https://test.sagepay.com/gateway/service/vspform-register.vsp';
     res.render(path.join(__dirname, "index"));
 });
@@ -47,7 +44,7 @@ app.get("/", function(req, res) {
 app.get("/:result", function(req, res) {})
 
 app.param("result", function(req, res, next, value) {
-    res.locals.decodedResponse = client.decodeResponse(hiddenFields.Crypt);
+    res.locals.decodedResponse = client.decodeResponse(req.query.crypt);
     res.render(path.join(__dirname, 'result'), {
         pageTitle: value
     });
